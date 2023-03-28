@@ -131,11 +131,7 @@ public class Policy
    */
    public double getBMI(double weightLbs, double heightInch)
    {
-      double bmi;
-      
-      bmi = ((weightLbs * 703) / (heightInch) * (heightInch));
-      
-      return bmi;
+      return ((weightLbs * 703) / ((heightInch) * (heightInch)));
    }
    
    /**
