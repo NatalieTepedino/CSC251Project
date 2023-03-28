@@ -60,6 +60,7 @@ public class Project_natalie_tepedino
       System.out.printf("Policyholder's BMI: %,.2f", policy1.getBMI(policy1.getWeight(), policy1.getHeight()));
       System.out.println();
       System.out.printf("Policy Price: $%,.2f", policy1.getPolicyPrice(policy1.getBMI(policy1.getWeight(), policy1.getHeight()), policy1.getAge(), policy1.getSmokingStatus()));
+      System.out.println();
       
       System.exit(0);
    }
