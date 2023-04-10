@@ -52,9 +52,85 @@ public class Policy
       weightLbs = weight;      
    }
    
+   // SETTERS
+   
+   /**
+      the setPolicyNum sets the policy number
+      @param num number   
+   */
+   public void setPolicyNum(int num)
+   {
+      policyNum = num;
+   }
+   
+   /**
+      the setProviderName sets the policy number
+      @param pronam the providers name   
+   */
+   public void setProviderName(String pronam)
+   {
+      providerName = pronam;
+   }
+   
+   /**
+      the setFirstName sets the persons first name
+      @param fir their first name  
+   */
+   public void setFirstName(String fir)
+   {
+      firstName = fir;
+   }
+   
+   /**
+      the setLastName sets the persons last name
+      @param las their last name  
+   */
+   public void setLastName(String las)
+   {
+      lastName = las;
+   }
+   
+   /**
+      the setAge sets the persons age
+      @param ag their age  
+   */
+   public void setAge(int ag)
+   {
+      age = ag;
+   }
+   
+   /**
+      the setSmokerStatus sets the persons smoker status as a string
+      @param smoke their smoker status as a string 
+   */
+   public void setSmokerStatus(String smoke)
+   {
+      smokerStatus = smoke;
+   }
+   
+   /**
+      the setHeightInch sets the persons height in inches
+      @param height their height in inches 
+   */
+   public void setHeightInch(double height)
+   {
+      heightInch = height;
+   }
+   
+   /**
+      the setWeightLbs sets the persons weight in pounds
+      @param weight their weight in pounds 
+   */
+   public void setWeightLbs(double weight)
+   {
+      weightLbs = weight;
+   }
+   
+   // GETTERS
+   
    /** 
       the getPolicyNum method gets the policy number
-      @param num
+      @return the policy number
    */
    public int getPolicyNum()
    {
@@ -63,7 +139,7 @@ public class Policy
    
    /**
       the getProviderName method gets the providers name
-      @param pronam
+      @return The providers name
    */
    public String getProviderName()
    { 
@@ -72,7 +148,7 @@ public class Policy
    
    /**
       the getFirstName method gets the policyholder's first name
-      @param fir
+      @return The first name
    */
    public String getFirstName()
    {
@@ -81,7 +157,7 @@ public class Policy
    
    /**
       the getLasttName method gets the policyholder's last name
-      @param las
+      @return The last name
    */
    public String getLastName()
    {
@@ -90,7 +166,7 @@ public class Policy
    
    /**
       the getAge method gets the policyholder's age
-      @param ag
+      @return The age
    */
    public int getAge()
    {
@@ -99,7 +175,7 @@ public class Policy
    
    /**
       the getSmokingStatus gets the policyholder's smoking status
-      @param smoke
+      @return The persons smoking status
    */
    public String getSmokingStatus()
    {
@@ -108,7 +184,7 @@ public class Policy
    
    /**
       the getHeight method gets the policyholder's height in inches
-      @param height
+      @return the persons height
    */
    public double getHeight()
    {
@@ -117,30 +193,31 @@ public class Policy
    
    /**
       the getWeight method gets the policyholder's weight in pounds
-      @param weight
+      @return their weight
    */
    public double getWeight()
    {
       return weightLbs;
    }
    
+   // METHODS
+   
    /**
       the getBMI method gets the BMI of the policyholder
-      @param weightLbs
-      @param heightInch
+      @return the bmi
    */
-   public double getBMI(double weightLbs, double heightInch)
+   public double getBMI()
    {
       return ((weightLbs * 703) / ((heightInch) * (heightInch)));
    }
    
    /**
       the getPolicyPrice method gets the policy price
-      @param bmi
       @param ag
       @param smoke
+      @return the policy price
    */
-   public double getPolicyPrice(double bmi, int age, String smokerStatus)
+   public double getPolicyPrice(int age, String smokerStatus)
    {
       double policyPrice;
       
@@ -157,9 +234,9 @@ public class Policy
          policyPrice += 100;
       }
       
-      if (bmi > 35)
+      if (getBMI() > 35)
       {
-         policyPrice += (bmi - 35) * 20;
+         policyPrice += (getBMI() - 35) * 20;
       }
       
       return policyPrice;
