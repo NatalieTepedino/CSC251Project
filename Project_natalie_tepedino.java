@@ -35,7 +35,8 @@ public class Project_natalie_tepedino
         String skipLine = inputFile.nextLine();
         
         accounts.add(policy1);
-        
+       
+       
         if (policy1.getSmokingStatus() == "smoker")
         {
             smoker++;
@@ -44,6 +45,7 @@ public class Project_natalie_tepedino
         {
             nonSmoker++;
         }
+        
         
         //output
         System.out.println("Policy Number: " + policy1.getPolicyNum());
