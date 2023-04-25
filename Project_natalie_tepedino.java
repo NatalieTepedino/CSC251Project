@@ -32,12 +32,16 @@ public class Project_natalie_tepedino
         policy1.setSmokerStatus(inputFile.nextLine());
         policy1.setHeightInch(Double.parseDouble(inputFile.nextLine()));
         policy1.setWeightLbs(Double.parseDouble(inputFile.nextLine()));
-        String skipLine = inputFile.nextLine();
+        
+        if (inputFile.hasNext())
+        { 
+            inputFile.nextLine();
+        }
         
         accounts.add(policy1);
        
        
-        if (policy1.getSmokingStatus() == "smoker")
+        if (policy1.getSmokingStatus().equals("smoker"))
         {
             smoker++;
         }
