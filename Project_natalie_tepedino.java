@@ -12,6 +12,7 @@ public class Project_natalie_tepedino
    {  
    
       int smoker = 0, nonSmoker = 0;
+      public static int counter;
       
       //open the file
       File file = new File("PolicyInformation.txt");
@@ -23,6 +24,8 @@ public class Project_natalie_tepedino
       {
         Policy policy1 = new Policy();
        
+        policy1.setId(counter);
+        
         policy1.setPolicyNum(Integer.parseInt(inputFile.nextLine()));
         policy1.setProviderName(inputFile.nextLine());
         policy1.setFirstName(inputFile.nextLine());
@@ -65,6 +68,8 @@ public class Project_natalie_tepedino
         System.out.printf("Policy Price: $%,.2f", policy1.getPolicyPrice(policy1.getAge(), policy1.getSmokingStatus()));
         System.out.println();
         System.out.println();
+        
+        counter++;
       }
       
       // close file

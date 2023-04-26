@@ -7,6 +7,7 @@ public class Policy
    // data fields
    private int policyNum; // Policy Number
    private String providerName; // Provider Name
+   private int id; //to track the number of policy objects
       
    /**
       No-Arg Constructor
@@ -15,6 +16,7 @@ public class Policy
    {
       policyNum = 0;
       providerName = " ";
+      id = 0;
    }
    
    /**
@@ -22,10 +24,11 @@ public class Policy
       @param num for the policy num
       @param pronam for the providers name
    */
-   public Policy(int num, String pronam)
+   public Policy(int num, String pronam, int i)
    {
       policyNum = num;
-      providerName = pronam;      
+      providerName = pronam;
+      id = i;      
    }
    
    // SETTERS
@@ -47,6 +50,15 @@ public class Policy
    {
       providerName = pronam;
    }
+   
+   /**
+      the setId sets the id
+      @param i (the object counter)
+   */
+   public void setId(int i)
+   { 
+      id = i;
+   }
       
    // GETTERS
    
@@ -66,6 +78,15 @@ public class Policy
    public String getProviderName()
    { 
       return providerName;
+   }
+   
+   /**
+      the getId gets the id
+      @returns the id counter
+   */
+   public int getId()
+   { 
+      return id;
    }
       
    // METHODS
