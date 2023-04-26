@@ -12,7 +12,7 @@ public class Project_natalie_tepedino
    {  
    
       int smoker = 0, nonSmoker = 0;
-      public static int counter;
+      int counter = 0;
       
       //open the file
       File file = new File("PolicyInformation.txt");
@@ -28,14 +28,14 @@ public class Project_natalie_tepedino
         
         policy1.setPolicyNum(Integer.parseInt(inputFile.nextLine()));
         policy1.setProviderName(inputFile.nextLine());
-        policy1.setFirstName(inputFile.nextLine());
-        policy1.setLastName(inputFile.nextLine());
+        policy1.getPolicyHolder().setFirstName(inputFile.nextLine());
+        policy1.getPolicyHolder().setLastName(inputFile.nextLine());
         
-        policy1.setAge(Integer.parseInt(inputFile.nextLine()));
-        policy1.setSmokerStatus(inputFile.nextLine());
-        policy1.setHeightInch(Double.parseDouble(inputFile.nextLine()));
-        policy1.setWeightLbs(Double.parseDouble(inputFile.nextLine()));
-        
+        policy1.getPolicyHolder().setAge(Integer.parseInt(inputFile.nextLine()));
+        policy1.getPolicyHolder().setSmokerStatus(inputFile.nextLine());
+        policy1.getPolicyHolder().setHeightInch(Double.parseDouble(inputFile.nextLine()));
+        policy1.getPolicyHolder().setWeightLbs(Double.parseDouble(inputFile.nextLine()));
+       
         if (inputFile.hasNext())
         { 
             inputFile.nextLine();
@@ -44,7 +44,7 @@ public class Project_natalie_tepedino
         accounts.add(policy1);
        
        
-        if (policy1.getSmokingStatus().equals("smoker"))
+        if (policy1.getPolicyHolder().getSmokingStatus().equals("smoker"))
         {
             smoker++;
         }
@@ -53,28 +53,20 @@ public class Project_natalie_tepedino
             nonSmoker++;
         }
         
-        
-        //output
-        System.out.println("Policy Number: " + policy1.getPolicyNum());
-        System.out.println("Provider Name: " + policy1.getProviderName());
-        System.out.println("Policyholder's First Name: " + policy1.getFirstName());
-        System.out.println("Policyholder's Last Name: " + policy1.getLastName());
-        System.out.println("Policyholder's Age: " + policy1.getAge());
-        System.out.println("Policyholder's Smoking Status: " + policy1.getSmokingStatus());
-        System.out.println("Policyholder's Height: " + policy1.getHeight() + " inches");
-        System.out.println("Policyholder's Weight: " + policy1.getWeight() + " pounds");
-        System.out.printf("Policyholder's BMI: %,.2f", policy1.getBMI());
-        System.out.println();
-        System.out.printf("Policy Price: $%,.2f", policy1.getPolicyPrice(policy1.getAge(), policy1.getSmokingStatus()));
-        System.out.println();
-        System.out.println();
-        
         counter++;
       }
       
       // close file
       inputFile.close();
       
+      for(int i=0; i < accounts.size(); i++)
+      {
+         System.out.println(accounts.get(i));//notice how the toString() method does not need to be explicitly called when printing out information of our Course class
+         System.out.println(accounts.get(i).getPolicyHolder().toString());
+         System.out.println();//print a blank line between Courses for easier readability
+      }
+      
+      System.out.println("There were " + counter + "Policy objects created");
       System.out.println("The number of policies with a smoker is: " + smoker);
       System.out.println("The number of policies with a non-smoker is: " + nonSmoker);
       

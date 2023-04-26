@@ -40,6 +40,19 @@ public class PolicyHolder
       weightLbs = weight;      
    }
    
+   /*The copy constructor creates a copy of the TextBook class that it is passed as a parameter.
+     We use this to avoid secuirty holes.  See Chapter 7 for more information about this.
+     @param object2 - the object to copy
+   */
+   public PolicyHolder(PolicyHolder object2)
+   {
+      firstName = object2.firstName;
+      lastName = object2.lastName;
+      age = object2.age;
+      smokerStatus = object2.smokerStatus;
+      heightInch = object2.heightInch;
+      weightLbs = object2.weightLbs;
+   }
    // SETTERS
    
    /**

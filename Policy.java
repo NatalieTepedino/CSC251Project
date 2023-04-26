@@ -8,6 +8,7 @@ public class Policy
    private int policyNum; // Policy Number
    private String providerName; // Provider Name
    private int id; //to track the number of policy objects
+   private PolicyHolder policyHolder; 
       
    /**
       No-Arg Constructor
@@ -17,12 +18,14 @@ public class Policy
       policyNum = 0;
       providerName = " ";
       id = 0;
+      policyHolder = new PolicyHolder();
    }
    
    /**
       Constructor
       @param num for the policy num
       @param pronam for the providers name
+      @param person the policyholder
    */
    public Policy(int num, String pronam, int i)
    {
@@ -59,6 +62,15 @@ public class Policy
    { 
       id = i;
    }
+   
+   /**
+      @param person - a PolicyHolder object  
+   */  
+   
+   public void setPolicyHolder()
+   {
+      policyHolder = new PolicyHolder();
+   }
       
    // GETTERS
    
@@ -88,6 +100,16 @@ public class Policy
    { 
       return id;
    }
+   
+  /**
+      getPolicyHolder method
+      @return - return a reference to a copy of this course's PolicyHolder object
+  */
+
+   public PolicyHolder getPolicyHolder()
+   {
+      return new PolicyHolder(); 
+   }
       
    // METHODS
    
@@ -114,9 +136,9 @@ public class Policy
          policyPrice += 100;
       }
       
-      if (getBMI() > 35)
+      if (policyHolder.getBMI() > 35)
       {
-         policyPrice += (getBMI() - 35) * 20;
+         policyPrice += (policyHolder.getBMI() - 35) * 20;
       }
       
       return policyPrice;
@@ -130,7 +152,7 @@ public class Policy
    {
       return String.format("Policy Number:  " + policyNum + 
              "\nProvider Name: " + providerName + 
-             "\nPolicy Price: $%.2f", policyPrice);
+             "\nPolicy Price: $%.2f \n", getPolicyPrice(policyHolder.getAge(), policyHolder.getSmokingStatus()));
    }
 
 }
