@@ -100,4 +100,16 @@ public class Policy
       
       return policyPrice;
    }
+   
+   /**
+      toString method
+      @return - A string containing the policy's information
+  */ 
+  public String toString()
+   {
+      return String.format("Policy Number:  " + policyNum + 
+             "\nProvider Name: " + providerName + 
+             "\nPolicy Price: $%.2f", policyPrice);
+   }
+
 }
